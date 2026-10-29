@@ -1,40 +1,61 @@
-algoritmo "Final-de-ano"
+algoritmo "CalculadoraDeRotina"
 
 var
-Nome: caractere
-Nota1: real
-Nota2: real
-Nota3: real
-Nota4: real
-Media: real
-
-
+   estudo, trabalho, transporte, lazer, sono: real
+   total, livre: real
 
 inicio
-escreval ("Qual seu nome?: ")
-leia(Nome)
+   escreval("===================================")
+   escreval("    CALCULADORA DE ROTINA DIARIA")
+   escreval("===================================")
 
-escreval ("Qual sua nota do Primeira unidade?: ")
-leia (Nota1)
-escreval ("Qual sua nota do Segunda unidade?: ")
-leia (Nota2)
+   escreva("Quantas horas voce dorme por dia? ")
+   leia(sono)
 
-escreval ("Qual sua nota do Terceira unidade?: ")
-leia (Nota3)
+   escreva("Quantas horas voce estuda por dia? ")
+   leia(estudo)
 
-escreval ("Qual sua nota do Quarta unidade?: ")
-leia (Nota4)
+   escreva("Quantas horas voce trabalha por dia? ")
+   leia(trabalho)
 
-media <- (Nota1 + Nota2 + Nota3 + Nota4) / 4
+   escreva("Quantas horas voce gasta com transporte? ")
+   leia(transporte)
 
-escreval ("Nome do Aluno: ", Nome)
+   escreva("Quantas horas voce dedica ao lazer? ")
+   leia(lazer)
 
-se media >=6 entao
-escreval("Situação: Aluno Aprovado")
-senao
-escreval("Situação: Aluno Reprovado")
-fimse
+   total <- sono + estudo + trabalho + transporte + lazer
 
+   escreval("")
+   escreval("========== RESULTADO ==========")
 
+   escreval("Sono: ", sono, " horas")
+   escreval("Estudo: ", estudo, " horas")
+   escreval("Trabalho: ", trabalho, " horas")
+   escreval("Transporte: ", transporte, " horas")
+   escreval("Lazer: ", lazer, " horas")
+
+   escreval("Tempo ocupado: ", total, " horas")
+
+   se (total > 24) entao
+      escreval("ERRO: Sua rotina ultrapassa 24 horas!")
+      escreval("Revise os horarios informados.")
+   senao
+      livre <- 24 - total
+
+      escreval("Tempo livre: ", livre, " horas")
+
+      se (livre = 0) entao
+         escreval("Voce nao tem tempo livre na rotina.")
+      senao
+         se (livre <= 3) entao
+            escreval("Voce tem pouco tempo livre.")
+         senao
+            escreval("Voce tem um bom tempo livre.")
+         fimse
+      fimse
+   fimse
+
+   escreval("===============================")
 
 fimalgoritmo
